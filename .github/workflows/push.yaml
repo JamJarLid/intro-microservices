@@ -20,6 +20,7 @@ jobs:
         eval $(minikube -p minikube docker-env)
     - name: Print current app version
       run: |
+        eval $(minikube -p minikube docker-env)
         echo "current_version=$(grep '# version' version.md | cut -d ' ' -f3)" >> $GITHUB_ENV
         echo "Current version: ${{ env.current_version }}"
     - name: Generate Modified Deployment YAML
