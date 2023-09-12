@@ -31,11 +31,11 @@ jobs:
       - name: Build microservice1 image
         run: |
           eval $(minikube -p minikube docker-env)
-          docker build -f ./service-1/Dockerfile -t microservice1:${{ env.current_version }} ./service1
+          docker build -f ./service-1/Dockerfile -t microservice1:${{ env.current_version }} ./service-1
       - name: Build microservice2 image
         run: |
           eval $(minikube -p minikube docker-env)
-          docker build -f ./service-2/Dockerfile -t microservice2:${{ env.current_version }} ./service2
+          docker build -f ./service-2/Dockerfile -t microservice2:${{ env.current_version }} ./service-2
       - name: Print docker images
         run: |
           eval $(minikube -p minikube docker-env)
