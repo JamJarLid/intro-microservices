@@ -2,9 +2,7 @@ version: "3"
 
 services:
   service1:
-    build:
-      context: ./service1
-      dockerfile: Dockerfile
+    build: ./service-1
     container_name: service1-service
     networks:
       - my_network
@@ -18,9 +16,7 @@ services:
       - fluentd
 
   service2:
-    build:
-      context: ./service2
-      dockerfile: Dockerfile
+    build: ./service-2
     container_name: service2-service
     ports:
       - "5002:5002"
