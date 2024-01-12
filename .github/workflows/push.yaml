@@ -10,6 +10,14 @@ jobs:
     name: Deploy to minikube in Github Actions!
     steps:
       - uses: actions/checkout@v2
+      - name: Test
+        run: |
+          RESPONSE=$(curl https://api.github.com/repos/JamJarLid/cypress-pipelines/actions/runs -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json")
+          STATUS=$(echo $RESPONSE | jq -r '.workflow_runs[0].conclusion')
+          echo $STATUS
+          if [ "$STATUS" = "failure" ]; then
+            exit 1
+          fi
       - name: Start minikube
         uses: medyagh/setup-minikube@master
       - name: Try the cluster

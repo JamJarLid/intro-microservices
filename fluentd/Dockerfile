@@ -1,6 +1,6 @@
 # fluentd/Dockerfile
 
-FROM fluent/fluentd:v1.16.2-debian-arm64-1.0
+FROM fluent/fluentd:v1.16.2-debian-amd64-1.0
 USER root
 
 RUN ["gem", "install", "elasticsearch", "--no-doc", "--version", "8.1.2"]
